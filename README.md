@@ -13,3 +13,27 @@ This repository only hosts the Android app (APK) for **AkiliPesa**, the personal
 3. Tap **Install**.
 
 Updating: download the newest APK and install it over the old one. Your budget stays on your phone.
+
+## Sending a message to everyone (announcements)
+
+Edit `announcements.json` in this repo (the pencil icon on GitHub) and commit. The app shows the first active announcement at the top of the home screen within a few hours, on Android and on the web. People can close it; it then stays closed for them.
+
+```json
+{
+  "announcements": [
+    {
+      "id": "new-feature-loans",
+      "title": { "en": "Track money you lend", "sw": "Fuatilia pesa unazokopesha" },
+      "message": { "en": "Open Goals & Loans to record who owes you.", "sw": "Fungua Malengo & Mikopo kurekodi anayekudai." },
+      "link": "https://akilipesa.co.tz",
+      "linkLabel": { "en": "Learn more", "sw": "Jifunze zaidi" },
+      "until": "2026-12-31"
+    }
+  ]
+}
+```
+
+- `id` must be new for each message (reusing one means people who closed it will not see it).
+- `link`, `linkLabel` and `until` are optional. `until` is the last day it shows.
+- Optional `"platforms": ["android"]` or `["web"]`, and `"minVersion"` / `"maxVersion"` (for example `"1.0.3"`) target who sees it.
+- To stop showing it, remove it from the list (or let `until` pass).
