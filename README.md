@@ -37,3 +37,16 @@ Edit `announcements.json` in this repo (the pencil icon on GitHub) and commit. T
 - `link`, `linkLabel` and `until` are optional. `until` is the last day it shows.
 - Optional `"platforms": ["android"]` or `["web"]`, and `"minVersion"` / `"maxVersion"` (for example `"1.0.3"`) target who sees it.
 - To stop showing it, remove it from the list (or let `until` pass).
+
+## Updating the "Buy a coffee" link (every week)
+
+The Snippe payment link expires after 7 days. When you make a new one, edit `support.json` here (pencil icon on GitHub), paste the new link into `url`, update `updated`, and commit:
+
+```json
+{
+  "url": "https://snippe.me/p/NEW-LINK",
+  "updated": "2026-10-30"
+}
+```
+
+The app (Settings → About → Support AkiliPesa) and the website footer pick it up within a few hours. No app update needed. Remove the `url` (or the file) to hide the button.
